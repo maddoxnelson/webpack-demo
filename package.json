@@ -1,6 +1,13 @@
 {
   "name": "webpack-demo",
   "version": "1.0.0",
+  "scripts": {
+    "build": "webpack"
+  },
   "main": "index.js",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "html-webpack-plugin": "^2.30.1",
+    "webpack": "^3.11.0"
+  }
 }
