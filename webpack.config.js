@@ -12,31 +12,34 @@ const PATHS = {
   build: path.join(__dirname, "build"),
 };
 
-const commonConfig = merge([{
-  // Entries have to resolve to files! They rely on Node
-  // convention by default so if a directory contains *index.js*,
-  // it resolves to that.
+const commonConfig = merge([
+  {
+    // Entries have to resolve to files! They rely on Node
+    // convention by default so if a directory contains *index.js*,
+    // it resolves to that.
 
-  entry: {
-    app: PATHS.app,
+    entry: {
+      app: PATHS.app,
+    },
+    output: {
+      path: PATHS.build,
+      filename: "app.js",
+    },
+    plugins: [
+      new HtmlWebpackPlugin({
+        title: "Webpack demo",
+      }),
+      // Ignore node_modules so CPU usage with poll watching drops significantly
+      new webpack.WatchIgnorePlugin([
+        path.join(__dirname, "node_modules")
+      ]),
+      // emits a bell whenever a build fails
+      new SystemBellPlugin(),
+      new DashboardPlugin(),
+    ],
   },
-  output: {
-    path: PATHS.build,
-    filename: "app.js",
-  },
-  plugins: [
-    new HtmlWebpackPlugin({
-      title: "Webpack demo",
-    }),
-    // Ignore node_modules so CPU usage with poll watching drops significantly
-    new webpack.WatchIgnorePlugin([
-      path.join(__dirname, "node_modules")
-    ]),
-    // emits a bell whenever a build fails
-    new SystemBellPlugin(),
-    new DashboardPlugin(),
-  ]
-}]);
+  parts.loadCSS(),
+]);
 
 const productionConfig = merge([]);
 
