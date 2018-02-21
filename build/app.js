@@ -82,7 +82,7 @@ document.body.appendChild(Object(__WEBPACK_IMPORTED_MODULE_0__component__["a" /*
 "use strict";
 /* harmony default export */ __webpack_exports__["a"] = ((text="Hello world") => {
   const element = document.createElement("div");
-
+  damn
   element.innerHTML = text;
 
   return element;
