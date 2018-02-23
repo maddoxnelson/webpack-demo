@@ -1,3 +1,5 @@
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+
 exports.devServer = ({ host, port } = {}) => ({
   devServer: {
     stats: "errors-only",
@@ -23,3 +25,28 @@ exports.loadCSS = ({ include, exclude } = {}) => ({
     ],
   },
 });
+
+exports.extractCSS = ({ include, exclude, use }) => {
+  const plugin = new ExtractTextPlugin({
+    // allChunks is needed with CommonsChunkPlugin to extract
+    // from extracted chunks as well.
+    allChunks: true,
+    filename: "app.css",
+  });
+
+  return {
+    module: {
+      rules: [{
+        test: /\.css$/,
+        include,
+        exclude,
+
+        use: plugin.extract({
+          use,
+          fallback: "style-loader"
+        }),
+      }],
+    },
+    plugins: [plugin],
+  };
+};
