@@ -1,5 +1,5 @@
 body {
   background: #06a;
   background: pink;
-  display: flex;
+  transform: rotate3d(0,0,0);
 }
