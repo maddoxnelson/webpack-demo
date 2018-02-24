@@ -4,6 +4,7 @@ const webpack = require("webpack");
 const merge = require("webpack-merge");
 const SystemBellPlugin = require("system-bell-webpack-plugin");
 const DashboardPlugin = require("webpack-dashboard/plugin");
+const glob = require("glob");
 
 const parts = require("./webpack.parts");
 
@@ -43,7 +44,10 @@ const commonConfig = merge([
 const productionConfig = merge([
   parts.extractCSS({
     use: ["css-loader", parts.autoprefix()],
-  })
+  }),
+  parts.purifyCSS({
+    paths: glob.sync(`${PATHS.app}/**/*.js`, { nodir: true }),
+  }),
 ]);
 
 const developmentConfig = merge([
