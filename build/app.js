@@ -79,6 +79,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__component__ = __webpack_require__(/*! ./component */ 2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_purecss__ = __webpack_require__(/*! purecss */ 3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_purecss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_purecss__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_font_awesome_css_font_awesome_css__ = __webpack_require__(/*! font-awesome/css/font-awesome.css */ 4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_font_awesome_css_font_awesome_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_font_awesome_css_font_awesome_css__);
+
 
 
 
@@ -109,7 +112,7 @@ document.body.appendChild(Object(__WEBPACK_IMPORTED_MODULE_1__component__["a" /*
 /* harmony default export */ __webpack_exports__["a"] = ((text="Hello world") => {
   const element = document.createElement("div");
 
-  element.className = "pure-button";
+  element.className = "fa fa-hand-spock-o fa-1g";
   element.innerHTML = text;
 
   return element;
@@ -121,6 +124,16 @@ document.body.appendChild(Object(__WEBPACK_IMPORTED_MODULE_1__component__["a" /*
 /*!*************************************************!*\
   !*** ./node_modules/purecss/build/pure-min.css ***!
   \*************************************************/
+/*! dynamic exports provided */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 4 */
+/*!********************************************************!*\
+  !*** ./node_modules/font-awesome/css/font-awesome.css ***!
+  \********************************************************/
 /*! dynamic exports provided */
 /***/ (function(module, exports) {
 
