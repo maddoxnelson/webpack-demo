@@ -37,7 +37,7 @@ const commonConfig = merge([
       // emits a bell whenever a build fails
       new SystemBellPlugin(),
       new DashboardPlugin(),
-    ],
+    ]
   },
 ]);
 
@@ -54,12 +54,22 @@ const productionConfig = merge([
       name: "[name].[ext]",
     },
   }),
+  parts.loadFonts({
+    options: {
+      name: "[name].[ext]",
+    },
+  }),
 ]);
 
 const developmentConfig = merge([
   parts.devServer({
     host: process.env.HOST,
     port: process.env.PORT,
+  }),
+  parts.loadFonts({
+    options: {
+      name: "[name].[ext]",
+    },
   }),
   parts.loadCSS(),
   parts.loadImages(),
