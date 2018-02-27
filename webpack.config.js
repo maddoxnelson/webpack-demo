@@ -39,6 +39,12 @@ const commonConfig = merge([
       new DashboardPlugin(),
     ]
   },
+  parts.loadFonts({
+    options: {
+      name: "[name].[ext]",
+    },
+  }),
+  parts.loadJavaScript({ include: PATHS.app }),
 ]);
 
 const productionConfig = merge([
@@ -54,11 +60,6 @@ const productionConfig = merge([
       name: "[name].[ext]",
     },
   }),
-  parts.loadFonts({
-    options: {
-      name: "[name].[ext]",
-    },
-  }),
 ]);
 
 const developmentConfig = merge([
@@ -66,16 +67,12 @@ const developmentConfig = merge([
     host: process.env.HOST,
     port: process.env.PORT,
   }),
-  parts.loadFonts({
-    options: {
-      name: "[name].[ext]",
-    },
-  }),
   parts.loadCSS(),
   parts.loadImages(),
 ]);
 
 module.exports = env => {
+  process.env.BABEL_ENV = env;
   if (env === "production") {
     return merge(commonConfig, productionConfig);
   }
