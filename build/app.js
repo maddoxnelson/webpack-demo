@@ -88,7 +88,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 document.body.appendChild(Object(__WEBPACK_IMPORTED_MODULE_1__component__["a" /* default */])());
 
-
 /***/ }),
 /* 1 */
 /*!**********************!*\
@@ -109,15 +108,16 @@ document.body.appendChild(Object(__WEBPACK_IMPORTED_MODULE_1__component__["a" /*
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony default export */ __webpack_exports__["a"] = ((text="Hello world") => {
-  const element = document.createElement("div");
+/* harmony default export */ __webpack_exports__["a"] = (function () {
+  var text = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "Hello world";
+
+  var element = document.createElement("div");
 
   element.className = "fa fa-hand-spock-o fa-1g";
   element.innerHTML = text;
 
   return element;
 });
-
 
 /***/ }),
 /* 3 */
