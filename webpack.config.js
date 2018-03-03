@@ -1,10 +1,10 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const webpack = require("webpack");
 const merge = require("webpack-merge");
 const SystemBellPlugin = require("system-bell-webpack-plugin");
 const DashboardPlugin = require("webpack-dashboard/plugin");
 const glob = require("glob");
+const webpack = require("webpack");
 
 const parts = require("./webpack.parts");
 
@@ -24,7 +24,7 @@ const commonConfig = merge([
     },
     output: {
       path: PATHS.build,
-      filename: "app.js",
+      filename: "[name].js",
     },
     plugins: [
       new HtmlWebpackPlugin({
@@ -61,6 +61,12 @@ const productionConfig = merge([
     },
   }),
   parts.generateSourceMaps({ type: "source-map" }),
+  parts.extractBundles([
+    {
+      name: "vendor",
+      minChunks: ({ resource }) => /node_modules/.test(resource),
+    },
+  ]),
 ]);
 
 const developmentConfig = merge([
