@@ -1,4 +1,4 @@
-webpackJsonp([0],{
+webpackJsonp([1],{
 
 /***/ 6:
 /*!**********************!*\
@@ -56,6 +56,14 @@ document.body.appendChild(Object(__WEBPACK_IMPORTED_MODULE_1__component__["a" /*
 
   element.className = "fa fa-hand-spock-o fa-1g";
   element.innerHTML = text;
+
+  element.onclick = function () {
+    __webpack_require__.e/* import() */(0).then(__webpack_require__.bind(null, /*! ./lazy */ 16)).then(function (lazy) {
+      element.textContent = lazy.default;
+    }).catch(function (err) {
+      console.error(err);
+    });
+  };
 
   return element;
 });
