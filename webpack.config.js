@@ -5,6 +5,7 @@ const SystemBellPlugin = require("system-bell-webpack-plugin");
 const DashboardPlugin = require("webpack-dashboard/plugin");
 const glob = require("glob");
 const webpack = require("webpack");
+const ManifestPlugin = require('webpack-manifest-plugin');
 
 const parts = require("./webpack.parts");
 
@@ -25,6 +26,7 @@ const commonConfig = merge([
     output: {
       path: PATHS.build,
       filename: "[name].js",
+      pathinfo: true,
     },
     plugins: [
       new HtmlWebpackPlugin({
@@ -37,6 +39,7 @@ const commonConfig = merge([
       // emits a bell whenever a build fails
       new SystemBellPlugin(),
       new DashboardPlugin(),
+      new ManifestPlugin(),
     ]
   },
   parts.loadFonts({
@@ -67,6 +70,7 @@ const productionConfig = merge([
       minChunks: ({ resource }) => /node_modules/.test(resource),
     },
   ]),
+  parts.clean(PATHS.build),
 ]);
 
 const developmentConfig = merge([
