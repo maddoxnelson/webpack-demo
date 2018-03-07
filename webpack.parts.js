@@ -1,13 +1,10 @@
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
-const PurifyCSSPlugin = require("purifycss-webpack");
 const webpack = require("webpack");
+const PurifyCSSPlugin = require("purifycss-webpack");
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
-
-exports.extractBundles = bundles => ({
-  plugins: bundles.map(
-    bundle => new webpack.optimize.CommonsChunkPlugin(bundle)
-  ),
-});
+const UglifyWebpackPlugin = require("uglifyjs-webpack-plugin");
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const cssnano = require("cssnano");
 
 exports.devServer = ({ host, port } = {}) => ({
   devServer: {
@@ -26,6 +23,8 @@ exports.loadCSS = ({ include, exclude } = {}) => ({
     rules: [
       {
         test: /\.css/,
+        include,
+        exclude,
         use: [
           "style-loader",
           "css-loader"
@@ -34,6 +33,16 @@ exports.loadCSS = ({ include, exclude } = {}) => ({
     ],
   },
 });
+
+exports.extractBundles = bundles => ({
+  plugins: bundles.map(
+    bundle => new webpack.optimize.CommonsChunkPlugin(bundle)
+  ),
+});
+
+
+
+
 
 exports.extractCSS = ({ include, exclude, use }) => {
   const plugin = new ExtractTextPlugin({
@@ -123,4 +132,8 @@ exports.generateSourceMaps = ({ type }) => ({
 
 exports.clean = path => ({
   plugins: [new CleanWebpackPlugin([path])],
+});
+
+exports.minifyJavascript = () => ({
+  plugins: [new UglifyWebpackPlugin()],
 });
