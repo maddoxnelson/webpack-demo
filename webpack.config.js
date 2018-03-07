@@ -1,11 +1,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const merge = require("webpack-merge");
-const SystemBellPlugin = require("system-bell-webpack-plugin");
-const DashboardPlugin = require("webpack-dashboard/plugin");
 const glob = require("glob");
-const webpack = require("webpack");
-const ManifestPlugin = require('webpack-manifest-plugin');
 
 const parts = require("./webpack.parts");
 
@@ -16,10 +12,6 @@ const PATHS = {
 
 const commonConfig = merge([
   {
-    // Entries have to resolve to files! They rely on Node
-    // convention by default so if a directory contains *index.js*,
-    // it resolves to that.
-
     entry: {
       app: PATHS.app,
     },
@@ -32,14 +24,6 @@ const commonConfig = merge([
       new HtmlWebpackPlugin({
         title: "Webpack demo",
       }),
-      // Ignore node_modules so CPU usage with poll watching drops significantly
-      new webpack.WatchIgnorePlugin([
-        path.join(__dirname, "node_modules")
-      ]),
-      // emits a bell whenever a build fails
-      new SystemBellPlugin(),
-      new DashboardPlugin(),
-      new ManifestPlugin(),
     ]
   },
   parts.loadFonts({
@@ -51,6 +35,16 @@ const commonConfig = merge([
 ]);
 
 const productionConfig = merge([
+  {
+    performance: {
+      hints: "warning", // "error" or false are valid too
+      maxEntrypointSize: 50000, // in bytes, default is 250k
+      maxAssetSize: 450000 // in bytes
+    }
+  },
+  parts.clean(PATHS.build),
+  parts.minifyJavascript(),
+  parts.generateSourceMaps({ type: "source-map" }),
   parts.extractCSS({
     use: ["css-loader", parts.autoprefix()],
   }),
@@ -63,14 +57,17 @@ const productionConfig = merge([
       name: "[name].[ext]",
     },
   }),
-  parts.generateSourceMaps({ type: "source-map" }),
   parts.extractBundles([
     {
       name: "vendor",
-      minChunks: ({ resource }) => /node_modules/.test(resource),
+      minChunks: ({ resource }) => (
+        /node_modules/.test(resource),
+        resource.indexOf('node_modules') >= 0 &&
+        resource.match(/\.js$/)
+      ),
     },
   ]),
-  parts.clean(PATHS.build),
+
 ]);
 
 const developmentConfig = merge([
