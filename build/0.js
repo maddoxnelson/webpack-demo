@@ -1,1 +1,1 @@
-webpackJsonp([0],{16:function(e,o,l){"use strict";Object.defineProperty(o,"__esModule",{value:!0});var n=l(17);l.n(n);o.default="Hello from lazy",console.log("hello world")},17:function(e,o){}});
+webpackJsonp([0],{17:function(e,o,l){"use strict";Object.defineProperty(o,"__esModule",{value:!0});var n=l(18);l.n(n);o.default="Hello from lazy",console.log("hello world")},18:function(e,o){}});
