@@ -2,6 +2,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const merge = require("webpack-merge");
 const glob = require("glob");
+const webpack = require("webpack");
 
 const parts = require("./webpack.parts");
 
@@ -24,17 +25,24 @@ const commonConfig = merge([
       new HtmlWebpackPlugin({
         title: "Webpack demo",
       }),
+      new webpack.NamedModulesPlugin(),
     ]
   },
   parts.loadFonts({
     options: {
-      name: "[name].[ext]",
+      name: "[name].[hash:8].[ext]",
     },
   }),
   parts.loadJavaScript({ include: PATHS.app }),
 ]);
 
 const productionConfig = merge([
+  {
+    output: {
+      chunkFilename: "[name].[chunkhash:8].js",
+      filename: "[name].[chunkhash:8].js",
+    },
+  },
   {
     performance: {
       hints: "warning", // "error" or false are valid too
@@ -54,7 +62,7 @@ const productionConfig = merge([
   parts.loadImages({
     options: {
       limit: 15000,
-      name: "[name].[ext]",
+      name: "[name].[hash:8].[ext]",
     },
   }),
   parts.extractBundles([
