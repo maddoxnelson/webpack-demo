@@ -74,9 +74,15 @@ const productionConfig = merge([
         resource.match(/\.js$/)
       ),
     },
+    {
+      name: "manifest",
+      minChunks: Infinity,
+    },
   ]),
   parts.setFreeVariable("process.env.NODE_ENV", "production"),
-
+  {
+    recordsPath: path.join(__dirname, "records.json"),
+  },
 ]);
 
 const developmentConfig = merge([
