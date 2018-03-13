@@ -1,0 +1,1 @@
+webpackJsonp([4],{"./app/lazy.css":function(l,e){},"./app/lazy.js":function(l,e,o){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var a=o("./app/lazy.css");o.n(a);e.default="Hello from lazy",console.log("hello world")}});

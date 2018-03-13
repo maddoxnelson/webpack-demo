@@ -45,6 +45,7 @@
   "dependencies": {
     "browserslist": "^3.1.1",
     "font-awesome": "^4.7.0",
+    "happypack": "^4.0.1",
     "node-sass": "^4.7.2",
     "postcss": "^6.0.19",
     "postcss-cssnext": "^3.1.0",
