@@ -2,6 +2,7 @@
   "name": "webpack-demo",
   "version": "1.0.0",
   "scripts": {
+    "build:stats": "webpack --env production --json > stats.json",
     "build": "webpack --env production",
     "start": "nodemon --watch webpack.config.js --exec webpack-dev-server --env development",
     "dash": "webpack-dashboard"
