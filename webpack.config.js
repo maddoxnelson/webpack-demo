@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const merge = require("webpack-merge");
 const glob = require("glob");
 const webpack = require("webpack");
+const HappyPack = require("happypack");
 
 const parts = require("./webpack.parts");
 
@@ -26,6 +27,12 @@ const commonConfig = merge([
         title: "Webpack demo",
       }),
       new webpack.NamedModulesPlugin(),
+      new HappyPack({
+        loaders: [
+          // capture babel loader
+          "babel-loader"
+        ]
+      })
     ]
   },
   parts.loadFonts({

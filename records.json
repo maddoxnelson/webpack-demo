@@ -19,7 +19,7 @@
         "byName": {},
         "byBlocks": {},
         "usedIds": {
-          "0": 0
+          "1": 1
         }
       }
     }
@@ -44,7 +44,7 @@
         "byName": {},
         "byBlocks": {},
         "usedIds": {
-          "0": 0
+          "1": 1
         }
       }
     }
@@ -79,7 +79,7 @@
         "byName": {},
         "byBlocks": {},
         "usedIds": {
-          "0": 0
+          "1": 1
         }
       }
     }
@@ -100,7 +100,7 @@
         "byName": {},
         "byBlocks": {},
         "usedIds": {
-          "0": 0
+          "1": 1
         }
       }
     }
@@ -121,7 +121,7 @@
         "byName": {},
         "byBlocks": {},
         "usedIds": {
-          "0": 0
+          "1": 1
         }
       }
     }
@@ -140,7 +140,11 @@
       "node_modules/object-assign/index.js": "./node_modules/object-assign/index.js",
       "node_modules/extract-text-webpack-plugin/dist/loader.js??ref--2-0!node_modules/style-loader/index.js!node_modules/css-loader/index.js!node_modules/postcss-loader/lib/index.js??ref--2-3!node_modules/purecss/build/pure-min.css": "./node_modules/purecss/build/pure-min.css",
       "node_modules/react/cjs/react.production.min.js": "./node_modules/react/cjs/react.production.min.js",
-      "node_modules/react/index.js": "./node_modules/react/index.js"
+      "node_modules/react/index.js": "./node_modules/react/index.js",
+      "node_modules/happypack/loader.js!app/component.js": "./app/component.js",
+      "node_modules/happypack/loader.js!app/index.js": "./app/index.js",
+      "node_modules/happypack/loader.js!app/lazy.js": "./app/lazy.js",
+      "node_modules/happypack/loader.js!app/shake.js": "./app/shake.js"
     },
     "usedIds": {
       "./app/component.js": "./app/component.js",
@@ -165,13 +169,14 @@
       "manifest": 3
     },
     "byBlocks": {
-      "node_modules/babel-loader/lib/index.js!app/component.js:0/0": 0
+      "node_modules/babel-loader/lib/index.js!app/component.js:0/0": 0,
+      "node_modules/happypack/loader.js!app/component.js:0/0": 4
     },
     "usedIds": {
-      "0": 0,
       "1": 1,
       "2": 2,
-      "3": 3
+      "3": 3,
+      "4": 4
     }
   }
 }
