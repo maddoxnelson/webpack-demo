@@ -144,7 +144,8 @@
       "node_modules/happypack/loader.js!app/component.js": "./app/component.js",
       "node_modules/happypack/loader.js!app/index.js": "./app/index.js",
       "node_modules/happypack/loader.js!app/lazy.js": "./app/lazy.js",
-      "node_modules/happypack/loader.js!app/shake.js": "./app/shake.js"
+      "node_modules/happypack/loader.js!app/shake.js": "./app/shake.js",
+      "node_modules/happypack/loader.js!app/another.js": "./app/another.js"
     },
     "usedIds": {
       "./app/component.js": "./app/component.js",
@@ -159,24 +160,52 @@
       "./node_modules/object-assign/index.js": "./node_modules/object-assign/index.js",
       "./node_modules/purecss/build/pure-min.css": "./node_modules/purecss/build/pure-min.css",
       "./node_modules/react/cjs/react.production.min.js": "./node_modules/react/cjs/react.production.min.js",
-      "./node_modules/react/index.js": "./node_modules/react/index.js"
+      "./node_modules/react/index.js": "./node_modules/react/index.js",
+      "./app/another.js": "./app/another.js"
     }
   },
   "chunks": {
     "byName": {
       "app": 1,
       "vendor": 2,
-      "manifest": 3
+      "manifest": 3,
+      "another": 0
     },
     "byBlocks": {
       "node_modules/babel-loader/lib/index.js!app/component.js:0/0": 0,
       "node_modules/happypack/loader.js!app/component.js:0/0": 4
     },
     "usedIds": {
+      "0": 0,
       "1": 1,
       "2": 2,
       "3": 3,
       "4": 4
     }
-  }
+  },
+  "html-webpack-plugin for \"another/index.html\"": [
+    {
+      "modules": {
+        "byIdentifier": {
+          "node_modules/html-webpack-plugin/lib/loader.js!node_modules/html-webpack-plugin/default_index.ejs": "./node_modules/html-webpack-plugin/lib/loader.js!./node_modules/html-webpack-plugin/default_index.ejs",
+          "node_modules/lodash/lodash.js": "./node_modules/lodash/lodash.js",
+          "node_modules/webpack/buildin/global.js": "./node_modules/webpack/buildin/global.js",
+          "node_modules/webpack/buildin/module.js": "./node_modules/webpack/buildin/module.js"
+        },
+        "usedIds": {
+          "./node_modules/html-webpack-plugin/lib/loader.js!./node_modules/html-webpack-plugin/default_index.ejs": "./node_modules/html-webpack-plugin/lib/loader.js!./node_modules/html-webpack-plugin/default_index.ejs",
+          "./node_modules/lodash/lodash.js": "./node_modules/lodash/lodash.js",
+          "./node_modules/webpack/buildin/global.js": "./node_modules/webpack/buildin/global.js",
+          "./node_modules/webpack/buildin/module.js": "./node_modules/webpack/buildin/module.js"
+        }
+      },
+      "chunks": {
+        "byName": {},
+        "byBlocks": {},
+        "usedIds": {
+          "0": 0
+        }
+      }
+    }
+  ]
 }
